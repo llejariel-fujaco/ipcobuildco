@@ -26,6 +26,8 @@ import queue
 import requests
 import json
 
+import dictionary
+
 ###############################################################################
 # pip install --upgrade pip
 # pip install --upgrade pandas
@@ -51,7 +53,12 @@ def main():
     logger.info('Params list=[{}]'.format(params))
     logger.info('Config list=[{}]'.format(config))
     logger.info('thisname=[{}]'.format(thisname))
+    dictionary.isNoise('AH AH AH')
 
+    co_name='SMART ADVERTISING COMPANY FRANCE FR MZ'
+    logger.info('get_all_token: {0} => {1}'.format(co_name,dictionary.get_all_tokens(co_name)))
+
+    logger.info('get_company_canonical {0} => {1}'.format(co_name,dictionary.get_company_canonical(co_name)))
 
     logger.info('Done '+thisname)
     logger.info('-------------------------------------------------------------------')
@@ -80,7 +87,7 @@ def init_log():
         }
     }
     logging.config.dictConfig(logging_config)
-    logging_init=logging.getLogger()
+    logging_init=logging.getLogger(__name__)
     return(logging_init)
 
 ## -------------------------------------------------------------------
